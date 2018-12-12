@@ -1,9 +1,17 @@
 package com.mk.springdemo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("thatSillyCoach")
+@Component
 public class TennisCoach implements Coach{
+
+    private FortuneService fortuneService;
+    @Autowired
+    public TennisCoach(FortuneService theFortuneService) {
+        fortuneService = theFortuneService;
+    }
+
     @Override
     public String getDailyWorkout() {
         return "Practice your backhand volley";
@@ -11,6 +19,6 @@ public class TennisCoach implements Coach{
 
     @Override
     public String getDailyFortune() {
-        return null;
+        return "Implemented by Autowiring, " +  this.fortuneService.getFortune();
     }
 }
