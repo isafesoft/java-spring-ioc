@@ -9,4 +9,9 @@
     <bean id="myCoach" class="com.mk.springdemo.TruckCoach">
         <constructor-arg ref="myFortune"></constructor-arg>
     </bean>
+
+    <bean id="myCricketCoach" class="com.mk.springdemo.CricketCoach">
+        <!-- set up setter injection-->
+        <property name="fortuneService" ref="myFortune"></property>
+    </bean>
 </beans>
