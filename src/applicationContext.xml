@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--annotation demo-->
+    <!--add entry to enable component scanning-->
+    <context:component-scan base-package="com.mk.springdemo"/>
 
-    <bean id="myFortune" class="com.mk.springdemo.HappyFortuneService">
-    </bean>
 
-    <bean id="myCoach" class="com.mk.springdemo.TruckCoach">
-        <constructor-arg ref="myFortune"></constructor-arg>
-    </bean>
+    <!--<bean id="myFortune" class="com.mk.springdemo.HappyFortuneService">-->
+    <!--</bean>-->
 
-    <bean id="myCricketCoach" class="com.mk.springdemo.CricketCoach">
-        <!-- set up setter injection-->
-        <property name="fortuneService" ref="myFortune"></property>
+    <!--<bean id="myCoach" class="com.mk.springdemo.TruckCoach">-->
+        <!--<constructor-arg ref="myFortune"></constructor-arg>-->
+    <!--</bean>-->
 
-        <!--inject literal value-->
-        <property name="emailAddress" value="jjyy@hotmail.com"></property>
-        <property name="team" value="Sunisers"></property>
-    </bean>
+    <!--<bean id="myCricketCoach" class="com.mk.springdemo.CricketCoach">-->
+        <!--&lt;!&ndash; set up setter injection&ndash;&gt;-->
+        <!--<property name="fortuneService" ref="myFortune"></property>-->
+
+        <!--&lt;!&ndash;inject literal value&ndash;&gt;-->
+        <!--<property name="emailAddress" value="jjyy@hotmail.com"></property>-->
+        <!--<property name="team" value="Sunisers"></property>-->
+    <!--</bean>-->
+
 </beans>

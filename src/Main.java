@@ -6,14 +6,8 @@ public class Main {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        //DI by xml
-        Coach theCoach = context.getBean("myCoach", Coach.class);
+        Coach theCoach = context.getBean("thatSillyCoach", Coach.class);
         System.out.println(theCoach.getDailyWorkout());
-        System.out.println(theCoach.getDailyFortune());
-
-        CricketCoach ckCoach = context.getBean("myCricketCoach", CricketCoach.class);
-        ckCoach.getDailyFortune();
-        ckCoach.getDailyWorkout();
         context.close();
     }
 }
